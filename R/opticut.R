@@ -1,0 +1,2 @@
+opticut <- function (...)
+    UseMethod("opticut")
