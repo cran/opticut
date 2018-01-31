@@ -22,6 +22,13 @@ comb=c("rank", "all"), sset=NULL, cl=NULL, ...)
         colnames(X) <- "(Intercept)"
     }
 
+    if (any(is.na(Y)))
+        stop("Y contains NA")
+    if (any(is.na(X)))
+        stop("X contains NA")
+    if (any(is.na(strata)))
+        stop("strata argument contains NA")
+
     if (is.null(dim(strata))) {
         if (nchar(getOption("ocoptions")$collapse) < 1)
             stop("nchar(getOption('ocoptions')$collapse) must be > 0")
@@ -54,13 +61,10 @@ comb=c("rank", "all"), sset=NULL, cl=NULL, ...)
     }
 
     if (!is.function(dist)) {
-        Dist <- strsplit(as.character(dist), ":", fixed=TRUE)[[1]][1]
-        Dist <- match.arg(Dist,
-            c("gaussian","poisson","binomial","negbin",
-            "beta","zip","zinb","ordered", "rsf", "rspf",
-            "zip2", "zinb2"))
-        ## sanity check for ordered/rsf/rspf
-        if (Dist %in% c("ordered", "rsf", "rspf") && ncol(Y) > 1L)
+        dist <- .opticut_dist(dist, make_dist=TRUE)
+        Dist <- strsplit(as.character(dist), ":", fixed=TRUE)[[1L]][1L]
+        ## sanity check for rsf/rspf
+        if (Dist %in% c("rsf", "rspf") && ncol(Y) > 1L)
             stop("'", Dist, "' is only available for single species in RHS")
     }
 
@@ -118,9 +122,8 @@ comb=c("rank", "all"), sset=NULL, cl=NULL, ...)
         collapse=getOption("ocoptions")$collapse)
     if (is.function(dist)) {
         attr(out$dist, "dist") <- deparse(substitute(dist))
-        for (i in which(!Failed)) {
-            attr(res[[i]], "dist") <- deparse(substitute(dist))
-        }
+        for (i in seq_len(length(out$species)))
+            attr(out$species[[i]], "dist") <- deparse(substitute(dist))
     }
     class(out) <- "opticut"
     out

@@ -2,7 +2,7 @@
 \alias{occolors}
 \alias{col2gray}
 \title{
-Color palettes for the opticut package
+Color Palettes for the opticut Package
 }
 \description{
 A convenient way of setting color palettes for the opticut package.
@@ -14,7 +14,8 @@ col2gray(col, method="BT.709")
 \arguments{
   \item{theme}{
 character value, character vector, or a function used to interpolate the colors.
-The built-in values are \code{"br"} (blue-red divergent palette, colorblind safe),
+The built-in values are \code{"br"} (default, blue-red divergent palette,
+colorblind safe),
 \code{"gr"} (green-red divergent palette), \code{"bw"} (black and white: grayscale converted \code{"br"} settings).
 See \code{\link{colorRampPalette}}, \code{\link{gray}} and the Examples.
 }
@@ -23,23 +24,27 @@ vector of color specification as described on the help page
 for the \code{\link{col2rgb}} function. This is converted to grayscale.
 }
   \item{method}{
-character, the method used for grayscale conversion.
+character, the method used for grayscale conversion. See Details.
 }
 }
 \details{
 Grayscale conversion methods in \code{col2gray} calculate gray levels based on
 red (R), green (G), and blue (B) color channels as follows:
-\code{"BT.709"}: 0.2126 * R + 0.7152 * G + 0.0722 * B,
-luminosity correction following the  ITU-R BT.709 recommendation;
-\code{"BT.601"}: 0.299 * R + 0.587 * G + 0.114 * B,
-luminosity correction following the  ITU-R BT.601 recommendation;
-\code{"desaturate"}: (max(R, G, B) + min(R, G, B)) / 2, also called lightness;
-\code{"average"}: (R + G + B) / 3;
-\code{"maximum"}: max(R, G, B);
-\code{"minimum"}: min(R, G, B);
-\code{"red"}: R;
-\code{"green"}: G;
-\code{"blue"}: B.
+
+\describe{
+\item{\code{"BT.709"}}{0.2126 * R + 0.7152 * G + 0.0722 * B,
+    luminosity correction following the  ITU-R BT.709 recommendation;}
+\item{\code{"BT.601"}}{0.299 * R + 0.587 * G + 0.114 * B,
+    luminosity correction following the  ITU-R BT.601 recommendation;}
+\item{\code{"desaturate"}}{(max(R, G, B) + min(R, G, B)) / 2,
+    also called lightness;}
+\item{\code{"average"}}{(R + G + B) / 3;}
+\item{\code{"maximum"}}{max(R, G, B);}
+\item{\code{"minimum"}}{min(R, G, B);}
+\item{\code{"red"}}{R;}
+\item{\code{"green"}}{G;}
+\item{\code{"blue"}}{B.}
+}
 }
 \value{
 \code{occolors} returns a function, see \code{\link{colorRampPalette}}.
@@ -52,11 +57,14 @@ Peter Solymos <solymos@ualberta.ca>
 
 Hexadecimal values for the built-in palettes are taken from
 \url{http://colorbrewer2.org/}.
+
+Converting color to grayscale:
+\url{https://en.wikipedia.org/wiki/Grayscale}
 }
 \seealso{
 \code{\link{colorRampPalette}} for a general description of palettes.
 
-\code{\link{ocoptions}} for setting the color theme options in the
+\code{\link{ocoptions}} for setting the color theme option in the
 opticut package.
 }
 \examples{
