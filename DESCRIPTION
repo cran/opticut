@@ -2,8 +2,8 @@ Package: opticut
 Type: Package
 Title: Likelihood Based Optimal Partitioning and Indicator Species
         Analysis
-Version: 0.1-1
-Date: 2018-01-30
+Version: 0.1-2
+Date: 2018-02-01
 Author: Peter Solymos [cre, aut], Ermias T. Azeria [ctb]
 Maintainer: Peter Solymos <solymos@ualberta.ca>
 Description: Likelihood based optimal partitioning and indicator
@@ -23,6 +23,6 @@ License: GPL-2
 LazyLoad: yes
 LazyData: true
 NeedsCompilation: no
-Packaged: 2018-01-31 05:12:31 UTC; root
+Packaged: 2018-02-01 05:51:04 UTC; root
 Repository: CRAN
-Date/Publication: 2018-01-31 05:41:32 UTC
+Date/Publication: 2018-02-01 16:10:17 UTC
