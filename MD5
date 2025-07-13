@@ -1,4 +1,4 @@
-28afe87528219e5de3ee05258562a4d2 *DESCRIPTION
+ec0f379d8c6bac274f75d31550b45d46 *DESCRIPTION
 ee7109a1b94817fb01dc792a4829e8cb *NAMESPACE
 2cd79fe4c198568be027d32f228d0a1d *R/allComb.R
 9dddff8459c64d638e32bb7fb7887e4c *R/as.data.frame.multicut.R
@@ -95,7 +95,7 @@ d0aebfd9868182abd289ba8a041b4da7 *R/uncertaintyMulticut1dot.R
 52ff22e7d536c8e24ee40c13103f8f89 *R/wplot.opticut.R
 ca807985475ee2e57e81144334a71c4b *R/wplot.opticut1.R
 dad0065a62c7798c6212e77e56040c9f *R/zzz.R
-ce7016672aee415092e82f233d8e248c *build/partial.rdb
+2872e84fb962744e4b19a9d29e78871a *build/partial.rdb
 20ad352cf1274f4579009fef7a74f196 *data/birdrec.rda
 ff5c39fcfea6b7561a348a11dfb74b27 *data/dolina.rda
 2f533be016a35dae59a98faf67950c18 *data/warblers.rda
